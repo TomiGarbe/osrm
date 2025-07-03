@@ -2,8 +2,7 @@ FROM osrm/osrm-backend
 
 WORKDIR /data
 
-# Descarga el PBF directo
-RUN curl -O https://download.openstreetmap.fr/extracts/south-america/argentina/cordoba-latest.osm.pbf
+COPY cordoba-latest.osm.pbf /data/
 
 # Procesado de OSRM
 RUN osrm-extract -p /opt/car.lua /data/cordoba-latest.osm.pbf && \
